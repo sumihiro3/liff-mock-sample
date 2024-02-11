@@ -6,9 +6,9 @@
 import liff from '@line/liff';
 import { LiffMockPlugin } from '@line/liff-mock';
 import { MockData } from '@line/liff-mock/dist/store/MockDataStore';
-import { getMockProfile } from '../liff-mock';
+import { getMockProfile, getMockScanCodeResult } from '../liff-mock';
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((__nuxtApp) => {
   const config = useRuntimeConfig();
   // LIFF ID
   const liffId = config.public.LIFF_ID!;
@@ -24,6 +24,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       ...data,
       isInClient: true,
       getProfile: getMockProfile(testUserId),
+      scanCode: getMockScanCodeResult(testUserId),
     }));
   }
   // execute liff.init()

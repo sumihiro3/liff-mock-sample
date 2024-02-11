@@ -19,5 +19,23 @@
       "userId": "U0000004",
       "pictureUrl": "https://placehold.jp/10cb52/ffffff/150x150.png?text=U0000004"
     }
+  ],
+  "scanCode": [
+    {
+      "userId": "U0000001",
+      "value": "https://google.com"
+    },
+    {
+      "userId": "U0000002",
+      "value": "https://yahoo.co.jp"
+    },
+    {
+      "userId": "U0000003",
+      "value": "https://bing.com"
+    },
+    {
+      "userId": "U0000004",
+      "value": "https://amazon.co.jp"
+    }
   ]
 }

@@ -1,8 +1,15 @@
 <template>
   <div>
-    <div>{{ nodeEnv }}</div>
+    <div>ENV: {{ nodeEnv }}</div>
 
-    <div v-if="liffProfile">
+    <div v-if="liffProfile" style="padding-top: 20px">
+      <div>
+        User ID:
+        <span id="userId">{{ liffProfile.userId }}</span>
+      </div>
+      <div v-if="liffProfile.pictureUrl">
+        <img :src="liffProfile.pictureUrl" alt="Profile Picture" />
+      </div>
       <div>Profile: {{ JSON.stringify(liffProfile) }}</div>
     </div>
     <div v-else>

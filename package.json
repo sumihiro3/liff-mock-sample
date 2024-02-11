@@ -5,7 +5,10 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "test-U0000001": "cross-env LIFF_ID=1234567890 TEST_USER_ID=U0000001 nuxt dev",
+    "test-U0000002": "cross-env LIFF_ID=1234567890 TEST_USER_ID=U0000002 nuxt dev",
     "test-U0000003": "cross-env LIFF_ID=1234567890 TEST_USER_ID=U0000003 nuxt dev",
+    "test-U0000004": "cross-env LIFF_ID=1234567890 TEST_USER_ID=U0000004 nuxt dev",
     "test-not-found": "cross-env LIFF_ID=1234567890 TEST_USER_ID=U999999 nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

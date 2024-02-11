@@ -5,18 +5,26 @@
 // import NPM version LIFF JS SDK
 import liff from '@line/liff';
 import { LiffMockPlugin } from '@line/liff-mock';
+import { MockData } from '@line/liff-mock/dist/store/MockDataStore';
+import { getMockProfile } from '../liff-mock';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig();
   // LIFF ID
   const liffId = config.public.LIFF_ID!;
-  // is Local
+  // is development mode
   const isDevelopment = process.env.NODE_ENV === 'development';
-  console.log(`isDevelopment: ${isDevelopment}`);
-  console.log(`liffId: ${liffId}`);
   // Use LiffMockPlugin when development
   if (isDevelopment) {
+    // get Test user ID
+    const testUserId = config.public.TEST_USER_ID || 'U0000001';
     liff.use(new LiffMockPlugin());
+    // set Mock data
+    liff.$mock.set((data: Partial<MockData>) => ({
+      ...data,
+      isInClient: true,
+      getProfile: getMockProfile(testUserId),
+    }));
   }
   // execute liff.init()
   liff

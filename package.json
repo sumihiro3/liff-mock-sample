@@ -5,7 +5,8 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "local": "cross-env LIFF_ID=1234567890 nuxt dev",
+    "test-U0000003": "cross-env LIFF_ID=1234567890 TEST_USER_ID=U0000003 nuxt dev",
+    "test-not-found": "cross-env LIFF_ID=1234567890 TEST_USER_ID=U999999 nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

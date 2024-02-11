@@ -23,10 +23,10 @@ const nodeEnv = useRuntimeConfig().public.NODE_ENV;
 const liffProfile = ref<Profile | null>(null);
 
 onMounted(async () => {
-  if (!$liff.isInClient()) liff.login();
-  // if ($liff.isLoggedIn()) {
-  const profile = await $liff.getProfile();
-  liffProfile.value = profile;
-  // }
+  if (!$liff.isLoggedIn()) {
+    $liff.login();
+    const profile = await $liff.getProfile();
+    liffProfile.value = profile;
+  }
 });
 </script>

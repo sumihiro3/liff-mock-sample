@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     public: {
       NODE_ENV: process.env.NODE_ENV,
       LIFF_ID: process.env.LIFF_ID,
+      TEST_USER_ID: process.env.TEST_USER_ID,
     },
   },
 });

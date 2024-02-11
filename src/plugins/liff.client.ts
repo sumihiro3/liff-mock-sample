@@ -4,18 +4,23 @@
 
 // import NPM version LIFF JS SDK
 import liff from '@line/liff';
-import { Plugin } from '@nuxt/types';
+import { LiffMockPlugin } from '@line/liff-mock';
 
-const liffPlugin: Plugin = (_, inject) => {
-  // You can access liff object as this.$liff by inject()
-  inject('liff', liff);
+export default defineNuxtPlugin((nuxtApp) => {
+  const config = useRuntimeConfig();
   // LIFF ID
-  const liffId = process.env.LIFF_ID!;
+  const liffId = config.public.LIFF_ID!;
   // is Local
-  const isLocal = process.env.NODE_ENV === 'local';
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  console.log(`isDevelopment: ${isDevelopment}`);
+  console.log(`liffId: ${liffId}`);
+  // Use LiffMockPlugin when development
+  if (isDevelopment) {
+    liff.use(new LiffMockPlugin());
+  }
   // execute liff.init()
-  const initResult = liff
-    .init({ liffId, mock: isLocal })
+  liff
+    .init({ liffId, mock: isDevelopment })
     .then(() => {
       console.log('LIFF init succeeded.');
     })
@@ -24,9 +29,9 @@ const liffPlugin: Plugin = (_, inject) => {
       return Promise.reject(error);
     });
 
-  // You can access liff.init()'s return value (Promise object)
-  // as this.$liffInit() by inject()
-  inject('liffInit', initResult);
-};
-
-export default liffPlugin;
+  return {
+    provide: {
+      liff,
+    },
+  };
+});

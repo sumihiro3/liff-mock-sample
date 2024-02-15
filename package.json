@@ -17,12 +17,14 @@
   "dependencies": {
     "@line/liff": "^2.23.1",
     "@line/liff-mock": "^1.0.3",
+    "dotenv": "^16.4.4",
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@nuxt/types": "^2.17.3",
+    "@playwright/test": "^1.41.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "cross-env": "^7.0.3",

@@ -17,7 +17,7 @@ export default defineNuxtPlugin((__nuxtApp) => {
   // Use LiffMockPlugin when development
   if (isDevelopment) {
     // get Test user ID
-    const testUserId = config.public.TEST_USER_ID || 'U0000001';
+    const testUserId = config.public.TEST_USER_ID || 'U9999999';
     liff.use(new LiffMockPlugin());
     // set Mock data
     liff.$mock.set((data: Partial<MockData>) => ({

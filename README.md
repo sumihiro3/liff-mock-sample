@@ -1,23 +1,13 @@
-# Nuxt 3 Minimal Starter
+# "LIFF Mock" sample with Nuxt 3
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look at the [LIFF Mock](https://github.com/line/liff-mock) to learn more.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
 yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -25,51 +15,23 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
 yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Run e2e test
 
-Build the application for production:
+Performs an e2e test according to the getProfile result of the LIFF API.
+
+Running the test when `pictureUrl` is included in the profile
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+yarn e2e:user-has-picture
 ```
 
-Locally preview production build:
+Run the test if the `pictureUrl` is not included in the profile.
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+yarn e2e:no-user-picture
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[Please click here](https://speakerdeck.com/sumihiro3/liff-mock-shi-tutemasuka) to view the slides used for [the event](https://linedevelopercommunity.connpass.com/event/308139/) presentation.
